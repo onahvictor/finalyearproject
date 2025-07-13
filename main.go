@@ -24,7 +24,7 @@ type application struct {
 }
 
 func main() {
-	if os.Getenv("ENV") != "Production" {
+	if os.Getenv("Enviroment") != "Production" {
 		err := godotenv.Load()
 		if err != nil {
 			log.Fatal("Error loading .env file")
