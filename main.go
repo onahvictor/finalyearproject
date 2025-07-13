@@ -24,10 +24,14 @@ type application struct {
 }
 
 func main() {
-	err := godotenv.Load()
-	if err != nil {
-		log.Fatal("Error loading .env file")
+	if os.Getenv("ENV") != "Production" {
+		err := godotenv.Load()
+		if err != nil {
+			log.Fatal("Error loading .env file")
+		}
+
 	}
+
 	app := &application{}
 
 	app.BucketName = os.Getenv("BUCKETNAME")
